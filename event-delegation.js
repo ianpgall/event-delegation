@@ -9,13 +9,18 @@
 
     executeCallback = function (callbackFunction, context, evnt) {
         var result;
-        result = F.call.call(callbackFunction, context, evnt);
+        result = callbackFunction.call(context, evnt);
         if (result === false) {
             if (evnt.preventDefault) {
                 evnt.preventDefault();
             } else {
                 evnt.returnValue = false;
             }
+            if (e.stopPropagation) {
+				e.stopPropagation();
+			} else {
+				e.cancelBubble = true;
+			}
         }
     };
 
