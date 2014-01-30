@@ -136,7 +136,7 @@
 		}
 	};
 
-	exposedHandler(window, "load", function () {
+	exposedHandler(window, "unload", function () {
 		var i, j, cur;
 		for (i = 1, j = allHandlers.length; i < j; i++) {
 			cur = allHandlers[i];
